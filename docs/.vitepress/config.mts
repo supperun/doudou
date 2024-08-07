@@ -6,7 +6,7 @@ export default defineConfig({
   title: '兜兜~',
   description: 'from zero to one',
   themeConfig: {
-    logo: '/favicon.png',
+    logo: '/favicon.ico',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Js', link: 'js/index.md' },
