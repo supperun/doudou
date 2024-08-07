@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: './',
+  base: '/doudou/',
   title: '兜兜~',
   description: 'from zero to one',
   themeConfig: {

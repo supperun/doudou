@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Javascript
-      link: /js/index.md
+      link: js/index.md
     - theme: alt
       text: CSS
-      link: /css/index.md
+      link: css/index.md
 
 features:
   - title: Feature A
