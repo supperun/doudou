@@ -11,6 +11,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Js', link: 'js/index.md' },
       { text: 'Css', link: 'css/index.md' },
+      { text: 'Html', link: 'html/index.md' },
     ],
     sidebar: [
       {
@@ -29,11 +30,11 @@ export default defineConfig({
       },
       {
         text: 'Css系列',
-        items: [{ text: 'css', link: '/css/index.md' }],
+        items: [{ text: 'css包含块', link: '/css/index.md' }],
       },
       {
         text: 'Html系列',
-        items: [{ text: 'a标签', link: '/html/index.md' }],
+        items: [{ text: '不知道的a元素', link: '/html/index.md' }],
       },
       {
         text: 'hello算法',
