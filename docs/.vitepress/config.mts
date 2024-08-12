@@ -6,7 +6,7 @@ export default defineConfig({
   title: '兜兜~',
   description: 'from zero to one',
   // 设置标签页标题
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/doudou/favicon.ico' }]],
   themeConfig: {
     logo: '/favicon.ico',
     nav: [
@@ -45,6 +45,7 @@ export default defineConfig({
           { text: 'a', link: '/html/index.md' },
           { text: 'meta', link: '/html/meta.md' },
           { text: 'details', link: '/html/details.md' },
+          { text: 'dailog', link: '/html/dailog.md' },
         ],
       },
       {

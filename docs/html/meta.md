@@ -85,7 +85,7 @@
 />
 ```
 
-`viewport-fit=cover` 环境变量函数生效
+`viewport-fit=cover` 环境函数生效
 
 安全区域是 iphone 底部触摸横条，和顶部刘海屏后出现的概念
 
