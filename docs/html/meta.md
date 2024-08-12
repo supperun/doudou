@@ -22,17 +22,17 @@
 2. Content Security Policy(csp) 安全设置可以指定页面中所有资源的加载与执行规则
 
 ```html
-/* 禁止内联 js 代码块执行 */
+<!-- 禁止内联 js 代码块执行  -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
 ```
 
 ```html
-/* 禁止HTML元素上style样式渲染 */
+<!-- 禁止HTML元素上style样式渲染 -->
 <meta http-equiv="Content-Security-Policy" content="style-src-attr 'none'" />
 ```
 
 ```html
-/*百度制定的元数据规则 pc，移动端权重共享 子域名*/
+<!-- 百度制定的元数据规则 pc，移动端权重共享 子域名 -->
 <meta
   http-equiv="mobile-agent"
   content="format=html5;url=https://mobie.htmlapi.cn"
@@ -108,7 +108,7 @@ body {
 
 ```html
 <meta name="theme-color" content="#0c58c0" />
-/* 倾向于浅色 */
+<!-- 倾向于浅色 -->
 <meta name="theme-color" content="light dark" />
 <meta name="theme-color" content="only light" />
 <meta
@@ -116,5 +116,5 @@ body {
   media="(prefers-color-scheme: light)"
   content="skyblue"
 />
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="blcak" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
 ```

@@ -32,6 +32,11 @@ for (var variable in object) {
 for (variable of iterable) {
   // 在此处编写针对可迭代对象中元素的操作代码
 }
+
+async function forFn() {
+  for await (variable of iterable) {
+  }
+}
 ```
 
 在 `for...of` 循环中，variable 代表一个变量，用于在每次迭代中存储可迭代对象中的一个元素值，而 **iterable** 是要遍历的可迭代对象。在每次迭代中，variable 会依次被赋值为可迭代对象中的每个元素值。
