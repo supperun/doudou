@@ -9,9 +9,9 @@ export default defineConfig({
     logo: '/favicon.ico',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Js', link: 'js/index.md' },
-      { text: 'Css', link: 'css/index.md' },
-      { text: 'Html', link: 'html/index.md' },
+      { text: 'Js', link: '/js/index.md' },
+      { text: 'Css', link: '/css/index.md' },
+      { text: 'Html', link: '/html/index.md' },
     ],
     sidebar: [
       {
@@ -22,6 +22,7 @@ export default defineConfig({
             text: 'Array',
             link: '/js/array.md',
           },
+          { text: 'Promsie', link: '/js/promise.md' },
           {
             text: '防抖&节流',
             link: '/js/deth.md',
@@ -34,7 +35,14 @@ export default defineConfig({
       },
       {
         text: 'Html系列',
-        items: [{ text: '不知道的a元素', link: '/html/index.md' }],
+        items: [
+          { text: '不知道的a元素', link: '/html/index.md' },
+          { text: 'meta', link: '/html/meta.md' },
+        ],
+      },
+      {
+        text: 'Typescript系列',
+        items: [{ text: '类型映射', link: '/ts/index.md' }],
       },
       {
         text: 'hello算法',
