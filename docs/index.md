@@ -25,9 +25,6 @@ hero:
     - theme: alt
       text: HTML
       link: html/index.md
-    - theme: alt
-      text: Hello算法
-      link: helloAlgorithm/index.md
 ---
 
 ## 斐波那契数列
