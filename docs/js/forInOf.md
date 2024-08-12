@@ -26,7 +26,7 @@ for (var variable in object) {
 
 ## for of
 
-> for...of 循环是一种用于遍历可迭代对象（如数组、字符串、Map、Set 等）中的元素的循环结构
+> for...of 循环是一种用于遍历可迭代对象（如**数组、字符串、Map、Set** 等）中的元素的循环结构
 
 ```js
 for (variable of iterable) {
@@ -40,7 +40,7 @@ for (variable of iterable) {
 
 使用 `for...of` 循环可以简洁地遍历可迭代对象中的元素，而且不需要手动管理索引，因此它在处理数组等数据结构时比传统的 for 循环更加方便和易读。
 
-## 自定义可迭代对象
+## 可迭代对象
 
 ```js
 let obj = {
@@ -61,4 +61,26 @@ for (const element of obj) {
   [a, b] = element;
 }
 console.log(a, b);
+```
+
+```js
+let arr = [
+  { id: 1, name: '12' },
+  { id: 1, name: '13' },
+  { id: 2, name: '12' },
+];
+
+function af(arr, cb) {
+  let aMap = new Map();
+  for (let item of arr) {
+    if (!aMap.has(cb(item))) {
+      aMap.set(cb(item), item);
+    }
+  }
+  // 取出Map中的values,输出成数组
+  // Array.from(aMap.values);
+  // [...aMap.values()];
+  return [...aMap.values()];
+}
+console.log(af(arr, (a) => a.name));
 ```
