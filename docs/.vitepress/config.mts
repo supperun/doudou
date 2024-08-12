@@ -22,6 +22,10 @@ export default defineConfig({
             text: 'Array',
             link: '/js/array.md',
           },
+          {
+            text: 'for in of',
+            link: '/js/forInOf.md',
+          },
           { text: 'Promsie', link: '/js/promise.md' },
           {
             text: '防抖&节流',
