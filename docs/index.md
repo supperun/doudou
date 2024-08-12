@@ -11,9 +11,10 @@ head:
     - name: keywords
       content: javascript css html hello算法
 hero:
-  name: '仓颉: hello,world!'
-  text: 'up & up'
-  tagline: From zero to one
+  name: '文祖仓颉'
+  text: '双瞳四目，天生睿德'
+  tagline: 观察星宿的运动趋势、鸟兽的足迹，依照其形象创文字，革除当时结绳记事之陋，开创文明之基，因而被尊奉为“文祖仓颉”。
+  image: '/cangjie.jpg'
   actions:
     - theme: brand
       text: Javascript
@@ -42,3 +43,9 @@ function fibonacci(n) {
   }
 }
 ```
+
+<style scope>
+  .text {
+    
+  }
+</style>

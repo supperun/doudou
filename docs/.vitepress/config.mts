@@ -6,7 +6,10 @@ export default defineConfig({
   title: '兜兜~',
   description: 'from zero to one',
   // 设置标签页标题
-  head: [['link', { rel: 'icon', href: '/doudou/favicon.ico' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/doudou/favicon.ico' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+  ],
   themeConfig: {
     logo: '/favicon.ico',
     nav: [
@@ -69,6 +72,17 @@ export default defineConfig({
     docFooter: {
       prev: '上一页',
       next: '下一页',
+    },
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'short',
+      },
+    },
+    editLink: {
+      pattern: 'https://github.com/supperun/doudou/blob/main/docs/:path',
+      text: '在 GitHub 上编辑此页面',
     },
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
