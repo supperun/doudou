@@ -17,8 +17,8 @@ hero:
   image: '/vitepress-logo-large.webp'
   actions:
     - theme: brand
-      text: 回头望月
-      link: js/index.md
+      text: 蓦然回首
+      link: src/js/index.md
 # 按钮下方的描述
 features:
   - icon: 💯

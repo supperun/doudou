@@ -26,65 +26,61 @@ export default defineConfig({
       {
         text: '三驾马车',
         items: [
-          { text: 'Js', link: '/js/index.md' },
-          { text: 'Css', link: '/css/index.md' },
-          { text: 'Html', link: '/html/index.md' },
-        ],
-      },
-      {
-        text: '三大框架',
-        items: [
-          { text: 'vue3', link: '/vue3/index.md' },
-          { text: 'react', link: '/vue3/index.md' },
-          { text: 'angular', link: '/vue3/index.md' },
+          { text: 'Js', link: '/src/js/index.md' },
+          { text: 'Css', link: '/src/css/index.md' },
+          { text: 'Html', link: '/src/html/index.md' },
         ],
       },
       {
         text: '后台',
-        items: [{ text: 'Node', link: '/node/index.md' }],
+        items: [{ text: 'Node', link: '/src/node/index.md' }],
       },
     ],
     sidebar: [
       {
         text: 'Javascript系列',
         items: [
-          { text: 'History', link: '/js/index.md' },
+          { text: 'History', link: '/src/js/index.md' },
           {
             text: 'Array',
-            link: '/js/array.md',
+            link: '/src/js/array.md',
           },
           {
             text: 'for in of',
-            link: '/js/forInOf.md',
+            link: '/src/js/forInOf.md',
           },
-          { text: 'Promsie', link: '/js/promise.md' },
+          { text: 'Promsie', link: '/src/js/promise.md' },
           {
             text: '防抖&节流',
-            link: '/js/deth.md',
+            link: '/src/js/deth.md',
           },
         ],
       },
       {
         text: 'Css系列',
-        items: [{ text: 'css包含块', link: '/css/index.md' }],
+        items: [{ text: 'css包含块', link: '/src/css/index.md' }],
       },
       {
         text: 'Html系列',
         items: [
-          { text: 'a', link: '/html/index.md' },
-          { text: 'meta', link: '/html/meta.md' },
-          { text: 'details', link: '/html/details.md' },
-          { text: 'dialog', link: '/html/dialog.md' },
-          { text: 'popover', link: '/html/popover.md' },
+          { text: 'a', link: '/src/html/index.md' },
+          { text: 'meta', link: '/src/html/meta.md' },
+          { text: 'details', link: '/src/html/details.md' },
+          { text: 'dialog', link: '/src/html/dialog.md' },
+          { text: 'popover', link: '/src/html/popover.md' },
         ],
       },
       {
+        text: 'Vue3',
+        items: [{ text: '跑跑Demo', link: '/src/vue3/index.md' }],
+      },
+      {
         text: 'Typescript系列',
-        items: [{ text: '类型映射', link: '/ts/index.md' }],
+        items: [{ text: '类型映射', link: '/src/ts/index.md' }],
       },
       {
         text: 'hello算法',
-        items: [{ text: '算法', link: '/helloAlgorithm/index.md' }],
+        items: [{ text: '算法', link: '/src/helloAlgorithm/index.md' }],
       },
     ],
     //开启本地搜索
