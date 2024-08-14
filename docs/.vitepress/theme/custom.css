@@ -1,0 +1,28 @@
+/**
+ * 自定义覆盖样式
+ * -------------------------------------------------------------------------- */
+
+/* Color Base */
+:root {
+  --vp-c-purple: #b185db;
+  --vp-c-purple-light: #c19ee0;
+  --vp-c-purple-lighter: #d2b7e5;
+  --vp-c-purple-dark: #a06cd5;
+  --vp-c-purple-darker: #9163cb;
+
+  /* 设置字体颜色 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #8134fe,
+    #ff41e9
+  );
+
+  /* 设置右图像渐变 */
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #8134fe 50%,
+    #ff41e9 80%
+  );
+  --vp-home-hero-image-filter: blur(100px);
+}

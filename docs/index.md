@@ -11,38 +11,24 @@ head:
     - name: keywords
       content: javascript css html hello算法
 hero:
-  name: '文祖仓颉'
-  text: '双瞳四目，天生睿德'
-  tagline: 观察星宿的运动趋势、鸟兽的足迹，依照其形象创文字，革除当时结绳记事之陋，开创文明之基，因而被尊奉为“文祖仓颉”。
-  image: '/cangjie.jpg'
+  name: '运行晚餐'
+  text: '昼夜颠倒，熬夜星人'
+  tagline: 哦豁，满昏💯二货就是喜欢反着来...
+  image: '/vitepress-logo-large.webp'
   actions:
     - theme: brand
-      text: Javascript
+      text: 开始记录
       link: js/index.md
-    - theme: alt
-      text: CSS
-      link: css/index.md
-    - theme: alt
-      text: HTML
-      link: html/index.md
+# 按钮下方的描述
+features:
+  - icon: 💯
+    title: 满分二货
+    details: 哦豁，满分二货就是喜欢反着来...
+    link: /js/index.md
+  - icon: 🎮
+    title: 游戏
+    details: 逃离塔科夫、黑悟空神话、饥荒单机版...
+  - icon: 📚
+    title: 心理学
+    details: 被讨厌的勇气、自卑与超越、你当飞向你的山...
 ---
-
-## 斐波那契数列
-
-这段代码定义了一个递归的 fibonacci 函数来计算第 n 个斐波那契数。你可以替换 n 的值来计算不同位置的斐波那契数。
-
-```js
-function fibonacci(n) {
-  if (n <= 1) {
-    return n;
-  } else {
-    return fibonacci(n - 1) + fibonacci(n - 2);
-  }
-}
-```
-
-<style scope>
-  .text {
-    
-  }
-</style>

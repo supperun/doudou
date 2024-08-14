@@ -1,10 +1,12 @@
 import DefaultTheme from 'vitepress/theme';
-import custom from '../layout/custom.vue';
+import customLayout from '../layout/customLayout.vue';
 import HomeLess from '../component/homeLess.vue';
+import './custom.css';
 
 export default {
   extends: DefaultTheme,
-  Layout: custom,
+  // 自定义布局
+  Layout: customLayout,
   // 使用注入插槽的包装组件覆盖 Layout
   enhanceApp({ app }) {
     // 注册自定义全局组件

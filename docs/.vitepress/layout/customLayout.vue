@@ -8,10 +8,10 @@ const { Layout } = DefaultTheme
 <template>
     <Layout>
         <template #aside-outline-before>
-            sidebar top content
+            <!-- sidebar top content -->
         </template>
         <template #aside-outline-after>
-            sidebar bottom content
+            <!-- sidebar bottom content -->
         </template>
     </Layout>
 </template>

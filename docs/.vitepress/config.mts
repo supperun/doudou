@@ -10,13 +10,39 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/doudou/favicon.ico' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
   ],
+  markdown: {
+    container: {
+      tipLabel: '提示',
+      warningLabel: '警告',
+      dangerLabel: '危险',
+      infoLabel: '信息',
+      detailsLabel: '详细信息',
+    },
+  },
   themeConfig: {
     logo: '/favicon.ico',
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Js', link: '/js/index.md' },
-      { text: 'Css', link: '/css/index.md' },
-      { text: 'Html', link: '/html/index.md' },
+      { text: '首页', link: '/' },
+      {
+        text: '三驾马车',
+        items: [
+          { text: 'Js', link: '/js/index.md' },
+          { text: 'Css', link: '/css/index.md' },
+          { text: 'Html', link: '/html/index.md' },
+        ],
+      },
+      {
+        text: '三大框架',
+        items: [
+          { text: 'vue3', link: '/vue3/index.md' },
+          { text: 'react', link: '/vue3/index.md' },
+          { text: 'angular', link: '/vue3/index.md' },
+        ],
+      },
+      {
+        text: '后台',
+        items: [{ text: 'Node', link: '/node/index.md' }],
+      },
     ],
     sidebar: [
       {
