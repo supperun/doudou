@@ -74,7 +74,8 @@ export default defineConfig({
           { text: 'a', link: '/html/index.md' },
           { text: 'meta', link: '/html/meta.md' },
           { text: 'details', link: '/html/details.md' },
-          { text: 'dailog', link: '/html/dailog.md' },
+          { text: 'dialog', link: '/html/dialog.md' },
+          { text: 'popover', link: '/html/popover.md' },
         ],
       },
       {

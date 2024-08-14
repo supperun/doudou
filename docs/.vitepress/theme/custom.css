@@ -4,12 +4,6 @@
 
 /* Color Base */
 :root {
-  --vp-c-purple: #b185db;
-  --vp-c-purple-light: #c19ee0;
-  --vp-c-purple-lighter: #d2b7e5;
-  --vp-c-purple-dark: #a06cd5;
-  --vp-c-purple-darker: #9163cb;
-
   /* 设置字体颜色 */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(
