@@ -3,6 +3,7 @@ layout: home
 
 title: supperun
 titleTemplate: 运行晚餐
+image: '/favicon.ico'
 head:
   - - meta
     - name: description
@@ -36,16 +37,3 @@ features:
 全局组件
 <home-less></home-less>
 <home-more></home-more> -->
-<!-- <style module>
-  body {
-    height: 100vh;
-    background-image: url('/bg.png');
-    background-size: cover;
-  }
-  body::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.08); /* 黑色遮罩，透明度为0.5 */
-  }
-</style> -->
