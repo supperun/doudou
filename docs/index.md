@@ -33,7 +33,5 @@ features:
     details: 被讨厌的勇气、自卑与超越、你当飞向你的山...
 ---
 
-<!--
-全局组件
-<home-less></home-less>
-<home-more></home-more> -->
+<home-under-line />
+<confetti />
