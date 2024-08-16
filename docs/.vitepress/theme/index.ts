@@ -37,33 +37,17 @@ export default {
       () => nextTick(() => initZoom())
     )
 
-    // <script src="https://giscus.app/client.js"
-    //         data-repo="supperun/doudou"
-    //         data-repo-id="R_kgDOMgSN2w"
-    //         data-category="Announcements"
-    //         data-category-id="DIC_kwDOMgSN284ChuBe"
-    //         data-mapping="pathname"
-    //         data-strict="0"
-    //         data-reactions-enabled="1"
-    //         data-emit-metadata="0"
-    //         data-input-position="bottom"
-    //         data-theme="preferred_color_scheme"
-    //         data-lang="zh-CN"
-    //         data-loading="lazy"
-    //         crossorigin="anonymous"
-    //         async>
-    // </script>
-
     // giscus配置
     giscusTalk(
       {
         repo: 'supperun/doudou', //仓库
         repoId: 'R_kgDOMgSN2w', //仓库ID
         category: 'Announcements', // 讨论分类
-        categoryId: 'DIC_kwDOMgSN284ChuB', //讨论分类ID
+        categoryId: 'DIC_kwDOMgSN284ChuBe', //讨论分类ID
         mapping: 'pathname',
         inputPosition: 'bottom',
         lang: 'zh-CN',
+        crossorigin: 'anonymous',
       },
       {
         frontmatter,

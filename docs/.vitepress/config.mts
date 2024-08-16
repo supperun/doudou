@@ -5,7 +5,7 @@ import timeline from 'vitepress-markdown-timeline'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: '/doudou/',
-  title: '兜兜~',
+  title: 'supperun',
   description: 'from zero to one',
   // 设置标签页标题
   head: [
@@ -27,7 +27,7 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    logo: '/favicon.ico',
+    logo: '/dff.jpg',
     nav,
     sidebar,
     //开启本地搜索

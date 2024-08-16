@@ -87,3 +87,8 @@ h1 {
   position: relative;
   border-left: 4px solid #e95f59;
 }
+
+/* 左上侧头像 */
+.VPNavBarTitle .VPImage {
+  border-radius: 10px;
+}
