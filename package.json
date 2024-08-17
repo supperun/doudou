@@ -16,5 +16,8 @@
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-theme-website": "^1.0.8",
     "vue": "^3.4.38"
+  },
+  "dependencies": {
+    "oh-my-live2d": "^0.19.3"
   }
 }

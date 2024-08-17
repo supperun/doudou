@@ -12,6 +12,7 @@ import mediumZoom from "medium-zoom"
 import giscusTalk from "vitepress-plugin-comment-with-giscus"
 import { onMounted, watch, nextTick, h, defineComponent } from "vue"
 import MNavLinks from "./component/MNavLinks.vue"
+import { loadOml2d } from "oh-my-live2d"
 
 export default {
   // ...DefaultTheme,
@@ -47,6 +48,38 @@ export default {
       () => route.path,
       () => nextTick(() => initZoom())
     )
+
+    // 看板娘
+    loadOml2d({
+      models: [
+        {
+          path: "https://model.oml2d.com/cat-black/model.json",
+          scale: 0.15,
+          position: [0, 20],
+          stageStyle: {
+            height: 350,
+          },
+        },
+        {
+          path: "https://model.oml2d.com/HK416-1-normal/model.json",
+          position: [0, 60],
+          scale: 0.08,
+          stageStyle: {
+            height: 450,
+          },
+        },
+        {
+          path: "https://model.oml2d.com/shizuku_pajama/index.json",
+          scale: 0.2,
+          volume: 0,
+          position: [40, 10],
+          stageStyle: {
+            height: 350,
+            width: 330,
+          },
+        },
+      ],
+    })
 
     // giscus配置
     giscusTalk(
