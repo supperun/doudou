@@ -3,7 +3,7 @@ layout: home
 
 title: supperun
 titleTemplate: 运行晚餐
-image: '/favicon.ico'
+image: "/favicon.ico"
 head:
   - - meta
     - name: description
@@ -12,14 +12,17 @@ head:
     - name: keywords
       content: javascript css html hello算法
 hero:
-  name: '运行晚餐'
-  text: '昼夜颠倒，熬夜星人'
+  name: "运行晚餐"
+  text: "昼夜颠倒，熬夜星人"
   tagline: 哦豁，满昏💯二货就是喜欢反着来...
-  image: '/vitepress-logo-large.webp'
+  image: "/vitepress-logo-large.webp"
   actions:
     - theme: brand
       text: 蓦然回首
-      link: src/js/index.md
+      link: src/js/
+    - theme: alt
+      text: 前端导航
+      link: src/nav/
 # 按钮下方的描述
 features:
   - icon: 💯

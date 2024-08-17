@@ -46,6 +46,7 @@ B 站链接图标：[哔哩哔哩](https://www.bilibili.com/)
 
 ::: info
 这是一条信息，info 后面的文字可修改
+https://fe-nav.netlify.app/nav/
 :::
 
 ::: tip 说明
