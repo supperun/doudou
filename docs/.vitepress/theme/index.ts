@@ -8,9 +8,8 @@ import HomeUnderline from "./component/HomeUnderline.vue"
 import DataPanel from "./component/DataPanel.vue"
 import confetti from "./component/confetti.vue"
 import mediumZoom from "medium-zoom"
-// import { useLive2d } from 'vitepress-theme-website'
 import giscusTalk from "vitepress-plugin-comment-with-giscus"
-import { onMounted, watch, nextTick, h, defineComponent } from "vue"
+import { onMounted, watch, nextTick, h } from "vue"
 import MNavLinks from "./component/MNavLinks.vue"
 import { loadOml2d } from "oh-my-live2d"
 
@@ -41,45 +40,45 @@ export default {
         background: "var(--vp-c-bg)",
       })
     }
-    onMounted(() => {
-      initZoom()
-    })
     watch(
       () => route.path,
       () => nextTick(() => initZoom())
     )
 
-    // 看板娘
-    loadOml2d({
-      models: [
-        {
-          path: "https://model.oml2d.com/cat-black/model.json",
-          scale: 0.15,
-          position: [0, 20],
-          stageStyle: {
-            height: 350,
+    async function asyncLoadOml2d() {
+      const { loadOml2d } = await import("oh-my-live2d")
+      // 看板娘
+      loadOml2d({
+        models: [
+          {
+            path: "https://model.oml2d.com/cat-black/model.json",
+            scale: 0.15,
+            position: [0, 20],
+            stageStyle: {
+              height: 350,
+            },
           },
-        },
-        {
-          path: "https://model.oml2d.com/HK416-1-normal/model.json",
-          position: [0, 60],
-          scale: 0.08,
-          stageStyle: {
-            height: 450,
+          {
+            path: "https://model.oml2d.com/HK416-1-normal/model.json",
+            position: [0, 60],
+            scale: 0.08,
+            stageStyle: {
+              height: 450,
+            },
           },
-        },
-        {
-          path: "https://model.oml2d.com/shizuku_pajama/index.json",
-          scale: 0.2,
-          volume: 0,
-          position: [40, 10],
-          stageStyle: {
-            height: 350,
-            width: 330,
+          {
+            path: "https://model.oml2d.com/shizuku_pajama/index.json",
+            scale: 0.2,
+            volume: 0,
+            position: [40, 10],
+            stageStyle: {
+              height: 350,
+              width: 330,
+            },
           },
-        },
-      ],
-    })
+        ],
+      })
+    }
 
     // giscus配置
     giscusTalk(
@@ -102,6 +101,11 @@ export default {
       //您可以使用“comment:true”序言在页面上单独启用它
       true
     )
+
+    onMounted(() => {
+      initZoom()
+      asyncLoadOml2d()
+    })
   },
   // 使用注入插槽的包装组件覆盖 Layout
   enhanceApp({ app, router }) {
