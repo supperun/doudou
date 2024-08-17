@@ -3,7 +3,6 @@ layout: home
 
 title: supperun
 titleTemplate: 运行晚餐
-image: "/favicon.ico"
 head:
   - - meta
     - name: description

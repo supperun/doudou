@@ -1,70 +1,70 @@
-import { defineConfig } from 'vitepress'
-import { nav, sidebar } from './configs'
-import timeline from 'vitepress-markdown-timeline'
+import { defineConfig } from "vitepress"
+import { nav, sidebar } from "./configs"
+import timeline from "vitepress-markdown-timeline"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/doudou/',
-  title: 'supperun',
-  description: 'from zero to one',
+  base: "/doudou/",
+  title: "supperun",
+  description: "from zero to one",
   // 设置标签页标题
   head: [
-    ['link', { rel: 'icon', href: '/doudou/favicon.ico' }],
-    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ["link", { rel: "icon", href: "/doudou/favicon.ico" }],
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
   ],
   markdown: {
     //行号显示
     lineNumbers: true,
     container: {
-      tipLabel: '提示',
-      warningLabel: '警告',
-      dangerLabel: '危险',
-      infoLabel: '信息',
-      detailsLabel: '详细信息',
+      tipLabel: "提示",
+      warningLabel: "警告",
+      dangerLabel: "危险",
+      infoLabel: "信息",
+      detailsLabel: "详细信息",
     },
     config: (md) => {
       md.use(timeline as any)
     },
   },
   themeConfig: {
-    logo: '/dff.jpg',
+    logo: "/dff.jpg",
     nav,
     sidebar,
     //开启本地搜索
     search: {
-      provider: 'local',
+      provider: "local",
     },
     //修改侧边栏导航的标题
     outline: {
-      label: '页面导航',
+      label: "页面导航",
     },
     // 修改文档页脚的文字
     docFooter: {
-      prev: '上一页',
-      next: '下一页',
+      prev: "上一页",
+      next: "下一页",
     },
     lastUpdated: {
-      text: '最后更新于',
+      text: "最后更新于",
       formatOptions: {
-        dateStyle: 'short',
-        timeStyle: 'short',
+        dateStyle: "short",
+        timeStyle: "short",
       },
     },
     editLink: {
-      pattern: 'https://github.com/supperun/doudou/blob/main/docs/:path',
-      text: '在 GitHub 上编辑此页面',
+      pattern: "https://github.com/supperun/doudou/blob/main/docs/:path",
+      text: "在 GitHub 上编辑此页面",
     },
-    returnToTopLabel: '回到顶部',
-    sidebarMenuLabel: '菜单',
-    darkModeSwitchLabel: '主题',
-    lightModeSwitchTitle: '切换到浅色模式',
-    darkModeSwitchTitle: '切换到深色模式',
+    returnToTopLabel: "回到顶部",
+    sidebarMenuLabel: "菜单",
+    darkModeSwitchLabel: "主题",
+    lightModeSwitchTitle: "切换到浅色模式",
+    darkModeSwitchTitle: "切换到深色模式",
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/supperun/doudou' },
+      { icon: "github", link: "https://github.com/supperun/doudou" },
     ],
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'MIT License | 运行晚餐',
+      message: "Released under the MIT License.",
+      copyright: "MIT License | 运行晚餐",
     },
   },
 })
