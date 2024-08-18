@@ -92,3 +92,12 @@ h1 {
 .VPNavBarTitle .VPImage {
   border-radius: 10px;
 }
+
+@font-face {
+  font-family: "customFont";
+  src: url("../../../public/Inter-Thin.ttf") format("truetype");
+}
+
+:root {
+  --vp-font-family-base: "customFont";
+}

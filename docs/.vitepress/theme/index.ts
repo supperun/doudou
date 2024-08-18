@@ -7,11 +7,11 @@ import layout from "./component/Layout.vue"
 import HomeUnderline from "./component/HomeUnderline.vue"
 import DataPanel from "./component/DataPanel.vue"
 import confetti from "./component/confetti.vue"
+import MNavLink from "./component/MNavLink.vue"
+import MNavLinks from "./component/MNavLinks.vue"
 import mediumZoom from "medium-zoom"
 import giscusTalk from "vitepress-plugin-comment-with-giscus"
 import { onMounted, watch, nextTick, h } from "vue"
-import MNavLinks from "./component/MNavLinks.vue"
-import { loadOml2d } from "oh-my-live2d"
 
 export default {
   // ...DefaultTheme,
@@ -113,6 +113,7 @@ export default {
     app.component("home-under-line", HomeUnderline)
     app.component("data-panel", DataPanel)
     app.component("confetti", confetti)
+    app.component("MNavLink", MNavLink)
     app.component("MNavLinks", MNavLinks)
     if (inBrowser) {
       router.onAfterRouteChanged = () => {

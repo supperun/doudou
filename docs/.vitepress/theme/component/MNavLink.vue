@@ -12,6 +12,7 @@ const props = defineProps<{
   title?: NavLink["title"]
   desc?: NavLink["desc"]
   link?: NavLink["link"]
+  target?: NavLink["target"]
 }>()
 
 const formatTitle = computed(() => {
@@ -34,10 +35,11 @@ const formatBadge = computed(() => {
   }
   return props.badge
 })
+
 </script>
 
 <template>
-  <a v-if="link" class="m-nav-link" :href="link" target="_blank" rel="noreferrer">
+  <a v-if="link" class="m-nav-link" :href="link" :target="target" rel="noreferrer">
     <article class="box" :class="{ 'has-badge': formatBadge }">
       <div class="box-header">
         <template v-if="!noIcon">

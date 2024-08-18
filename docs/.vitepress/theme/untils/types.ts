@@ -11,6 +11,8 @@ export interface NavLink {
   desc?: string
   /* 站点链接 */
   link?: string
+  /* 跳转行为 */
+  target?: "_self" | "_preview" | "_blank" | "_top"
 }
 
 export interface NavData {

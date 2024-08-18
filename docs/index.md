@@ -17,8 +17,8 @@ hero:
   image: "/vitepress-logo-large.webp"
   actions:
     - theme: brand
-      text: 蓦然回首
-      link: src/js/
+      text: 作品集
+      link: src/works/
     - theme: alt
       text: 前端导航
       link: src/nav/

@@ -26,6 +26,24 @@ export default defineConfig({
       md.use(timeline as any)
     },
   },
+  transformHead({ assets }) {
+    // 相应地调整正则表达式以匹配字体
+    const customFont = assets.find((file) => /inter-Thin\.\w+\.tff/)
+    if (customFont) {
+      return [
+        [
+          "link",
+          {
+            rel: "preload",
+            href: customFont,
+            as: "font",
+            type: "font/tff",
+            crossorigin: "",
+          },
+        ],
+      ]
+    }
+  },
   themeConfig: {
     logo: "/dff.jpg",
     nav,
