@@ -14,12 +14,14 @@ let timer = ref()
 let { isDark } = useData()
 
 function init() {
-  textRain.value.width = window.innerWidth
-  textRain.value.height = window.innerHeight
+  if (typeof window !== 'undefined') {
+    textRain.value.width = window?.innerWidth
+    textRain.value.height = window?.innerHeight
+  }
   columnCount = Math.floor(textRain.value.width / fontSize)
 }
 
-function throttleFn(func, delay) {
+function throttleFn(func: Function, delay: number) {
   let flag = false
   return function () {
     if (!flag) {
@@ -72,8 +74,10 @@ onMounted(() => {
   }, 30)
 
   const throtterInit = throttleFn(init, 1000)
-  window.onresize = () => {
-    throtterInit()
+  if (typeof window !== 'undefined') {
+    window.onresize = () => {
+      throtterInit()
+    }
   }
 })
 onUnmounted(() => {
