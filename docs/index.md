@@ -22,6 +22,9 @@ hero:
     - theme: alt
       text: 前端导航
       link: src/nav/
+    - theme: alt
+      text: 小代码
+      link: src/result/
 # 按钮下方的描述
 features:
   - icon: 💯

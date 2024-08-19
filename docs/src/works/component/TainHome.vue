@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TextRain from "./TextRain.vue"
 import TainAfter from "./TainAfter.vue"
-import { ref } from "vue"
+import { nextTick, onMounted, ref } from "vue"
 
 // 打工人语录
 const WORK = 'https://apis.tianapi.com/dgryl/index?key=5f44c5cd2e76564eb75c47859b3b124a'
@@ -11,13 +11,14 @@ const btn = ref({
   transform: ''
 })
 
-let result = ref<any>(null)
+let result = ref({ content: '' })
 
 async function fetchData(url: string) {
   try {
     const response = await (await fetch(url)).json()
     if (response.code === 200) {
-      result = response.result
+      result.value.content = response.result.content
+      console.log(result.value.content)
     } else {
       throw new Error('网络请求不正常！')
     }
@@ -25,11 +26,7 @@ async function fetchData(url: string) {
   } catch (error) {
     console.log(error)
   }
-
-  return result
 }
-
-fetchData(WORK)
 
 function homeAfterTOTop() {
   window.scrollTo({ top: 90 * window.innerHeight / 100, behavior: "smooth" })
@@ -45,6 +42,9 @@ window.onscroll = (e: Event) => {
   btn.value.opacity = opacity
   btn.value.transform = `scale(${scale})`
 }
+onMounted(() => {
+  fetchData(WORK)
+})
 
 </script>
 
@@ -60,7 +60,7 @@ window.onscroll = (e: Event) => {
 
       <p class="other-text mg6">今天 【暴雨】 25°C - 30°C</p>
 
-      <p v-if="result.content" class="other-text mg6">{{ result.content }}</p>
+      <p v-if="result?.content" class="other-text mg6">{{ result?.content }}</p>
 
       <p class="other-text mg6">加油！再坚持一下，最近的三个节日是 9月10日的教师节、9月18日的中秋节、10月1日的国庆节</p>
 
