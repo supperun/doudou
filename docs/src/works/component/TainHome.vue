@@ -60,7 +60,7 @@ window.onscroll = (e: Event) => {
 
       <p class="other-text mg6">今天 【暴雨】 25°C - 30°C</p>
 
-      <p class="other-text mg6">{{ result?.content }}</p>
+      <p v-if="result.content" class="other-text mg6">{{ result.content }}</p>
 
       <p class="other-text mg6">加油！再坚持一下，最近的三个节日是 9月10日的教师节、9月18日的中秋节、10月1日的国庆节</p>
 
