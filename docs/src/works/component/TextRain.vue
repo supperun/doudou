@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import { useData } from "vitepress"
 
 // 获取CanvasDom
 const textRain = ref()
@@ -9,6 +10,8 @@ const fontSize = 16
 let charIndex: number[] = [] // 用于跟踪每一列的字符索引 // 根据画布宽度计算列数
 let columnCount: number
 let timer = ref()
+
+let { isDark } = useData()
 
 function init() {
   textRain.value.width = window.innerWidth
@@ -38,7 +41,7 @@ function draw() {
   // 获取2d画笔
   const ctx = textRain.value?.getContext('2d')
   if (ctx) {
-    ctx.fillStyle = "rgba(229, 231, 235, 0.05)"
+    ctx.fillStyle = isDark.value ? "rgba(55, 65, 81, 0.05)" : "rgba(229, 231, 235, 0.05)"
     ctx.fillRect(0, 0, textRain.value.width, textRain.value.height)
     ctx.fillStyle = '#4FC08D'
     // 文字样式
@@ -57,10 +60,11 @@ function draw() {
     }
   }
 }
+
 onMounted(() => {
   init()
   for (let index = 0; index < columnCount; index++) {
-    charIndex[index] = 1
+    charIndex[columnCount] = 1
   }
   draw()
   timer.value = setInterval(() => {
@@ -82,9 +86,8 @@ onUnmounted(() => {
 </template>
 <style scoped lang="scss">
 .text-rain {
-  position: relative;
+  position: fixed;
   inset: 0;
   z-index: 1;
-  background-color: #fff;
 }
 </style>

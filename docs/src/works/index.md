@@ -66,13 +66,13 @@ import * as df from '../src/js/'
       text: "canvas",
       type: "tip",
     },
-    desc: "Canvas实现文字雨效果",
+    desc: "canvas实现文字雨效果",
     link: "./textRain",
     target: null
   }
 </script>
 
-# 作品集
+# 练习集
 
 ## 起点
 

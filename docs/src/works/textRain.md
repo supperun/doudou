@@ -1,9 +1,11 @@
 ---
 layout: page
+layoutClass: text-tain-home
+footer: false
 ---
 
-<script setup>
-  import TextRain from "./component/TextRain.vue"
+<script setup lang="ts">
+import TainHome from "./component/TainHome.vue"
 </script>
 
-<TextRain />
+<TainHome />

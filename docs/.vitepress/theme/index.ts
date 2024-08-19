@@ -34,7 +34,7 @@ export default {
     const initZoom = () => {
       // 不显式添加{data-zoomable}的情况下为所有图像启用此功能
       // mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' }) // 默认
-      mediumZoom("img", {
+      mediumZoom("img-zoom", {
         margin: 20,
         scrollOffset: 100,
         background: "var(--vp-c-bg)",
@@ -49,6 +49,7 @@ export default {
       const { loadOml2d } = await import("oh-my-live2d")
       // 看板娘
       loadOml2d({
+        dockedPosition: "right",
         models: [
           {
             path: "https://model.oml2d.com/cat-black/model.json",

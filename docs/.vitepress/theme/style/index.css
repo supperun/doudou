@@ -1,6 +1,7 @@
 /* node_modules\vitepress\dist\client\theme-default\styles\var.css */
-@import './var.css';
-@import './blur.css';
-@import './link.css';
-@import './linkcard.css';
-@import './vp-code-group.css';
+@import "./var.css";
+@import "./blur.css";
+@import "./link.css";
+@import "./linkcard.css";
+@import "./vp-code-group.css";
+@import "./custom.css";

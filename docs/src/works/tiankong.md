@@ -7,16 +7,7 @@
 
 </script>
 
-## 火烧云
-
-`css ('#11cbd7', '#c6f1e7', '#f0fff3', '#fa4659) `
-<TianKong :colors="['#11cbd7', '#c6f1e7', '#f0fff3', '#fa4659']"/>
-
-## 白云苍狗
-
-`css ('#11cbd7', '#c6f1e7', '#f0fff3', '#96C9F4') `
-
-<TianKong :colors="['#11cbd7', '#c6f1e7', '#f0fff3', '#96C9F4']"/>
+## 代码
 
 ::: details 代码实现
 
@@ -36,7 +27,7 @@ function rs(...args: string[]) {
   return args[rn(1, args.length) - 1]
 }
 
-// box-shadow生成一个阴影数组，大小和位置都是随机生成的。
+// box-shadow获取阴影数组，随机生成大小和位置。
 function boxShadows(max: number) {
   let ret: string[] = []
   for (let i = 0; i < max; ++i) {
@@ -107,3 +98,14 @@ onMounted(() => {
 ```
 
 :::
+
+## 火烧云
+
+`css ('#11cbd7', '#c6f1e7', '#f0fff3', '#fa4659) `
+<TianKong :colors="['#11cbd7', '#c6f1e7', '#f0fff3', '#fa4659']"/>
+
+## 白云苍狗
+
+`css ('#11cbd7', '#c6f1e7', '#f0fff3', '#96C9F4') `
+
+<TianKong :colors="['#11cbd7', '#c6f1e7', '#f0fff3', '#96C9F4']"/>

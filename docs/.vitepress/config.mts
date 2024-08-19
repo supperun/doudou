@@ -26,6 +26,7 @@ export default defineConfig({
       md.use(timeline as any)
     },
   },
+  // 自定义字体规则
   transformHead({ assets }) {
     // 相应地调整正则表达式以匹配字体
     const customFont = assets.find((file) => /inter-Thin\.\w+\.tff/)
