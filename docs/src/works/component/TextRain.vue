@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { clearInterval } from 'timers'
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 // 获取CanvasDom
 const textRain = ref()
@@ -9,7 +8,7 @@ const str = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const fontSize = 16
 let charIndex: number[] = [] // 用于跟踪每一列的字符索引 // 根据画布宽度计算列数
 let columnCount: number
-let si: any
+let timer = ref()
 
 function init() {
   textRain.value.width = window.innerWidth
@@ -59,13 +58,12 @@ function draw() {
   }
 }
 onMounted(() => {
-
   init()
   for (let index = 0; index < columnCount; index++) {
     charIndex[index] = 1
   }
   draw()
-  si = setInterval(() => {
+  timer.value = setInterval(() => {
     draw()
   }, 30)
 
@@ -73,6 +71,9 @@ onMounted(() => {
   window.onresize = () => {
     throtterInit()
   }
+})
+onUnmounted(() => {
+  clearInterval(timer.value)
 })
 
 </script>
