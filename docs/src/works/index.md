@@ -87,3 +87,37 @@ import * as df from '../src/js/'
  <MNavLink v-bind="own" />
  <MNavLink v-bind="font" />
 </div>
+
+## 爱心鱼时间线
+
+::: timeline 2016-03-23
+
+- 宿舍的凌晨
+
+  - 初识 javascript
+  - 通宵达旦，一个字母一个字母跟着视频敲
+  - 鱼儿游起来了 😆😆😆
+
+  :::
+
+::: timeline 2018 ~ 2024
+
+- 出入社会
+
+  - 初识 typescript 停留
+  - 一直想 Ts 重构，从未开始
+  - 持续很久 💩💩💩
+
+  :::
+
+::: timeline 2024-08-01 ~ 2024-08-22
+
+- 公寓的凌晨
+
+  - 断断续续
+  - webpack + ts + githup page ci/cd
+  - 重构基本完成 😶😶😶
+
+- 持续完善...
+
+  :::
