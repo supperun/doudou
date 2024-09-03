@@ -83,7 +83,7 @@ export default defineConfig({
     ],
     footer: {
       message: "Released under the MIT License.",
-      copyright: "MIT License | 运行晚餐",
+      copyright: "鄂ICP备2024071235号 | 运行晚餐",
     },
   },
 })
