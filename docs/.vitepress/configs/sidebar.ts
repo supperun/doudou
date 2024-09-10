@@ -65,6 +65,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
         { text: "details", link: "/src/html/details.md" },
         { text: "dialog", link: "/src/html/dialog.md" },
         { text: "popover", link: "/src/html/popover.md" },
+        { text: "history", link: "/src/html/history.md" },
+        { text: "hase", link: "/src/html/hase.md" },
       ],
     },
   ],
