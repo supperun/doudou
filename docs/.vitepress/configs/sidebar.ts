@@ -1,66 +1,78 @@
-import type { DefaultTheme } from 'vitepress'
+import type { DefaultTheme } from "vitepress"
 
-export const sidebar: DefaultTheme.Config['sidebar'] = {
+export const sidebar: DefaultTheme.Config["sidebar"] = {
   // 当用户位于 `guide` 目录时，会显示此侧边栏
-  '/src/js/': [
+  "/src/js/": [
     {
-      text: 'Javascript',
+      text: "Javascript",
       collapsed: false,
       items: [
-        { text: 'History', link: '/src/js/' },
+        { text: "History", link: "/src/js/" },
         {
-          text: 'Array',
-          link: '/src/js/array.md',
+          text: "Array",
+          link: "/src/js/array.md",
         },
         {
-          text: 'for in of',
-          link: '/src/js/forInOf.md',
+          text: "for in of",
+          link: "/src/js/forInOf.md",
         },
-        { text: 'Promsie', link: '/src/js/promise.md' },
+        { text: "Promsie", link: "/src/js/promise.md" },
         {
-          text: '防抖&节流',
-          link: '/src/js/deth.md',
+          text: "防抖&节流",
+          link: "/src/js/deth.md",
+        },
+        {
+          text: "Call",
+          link: "/src/js/call.md",
+        },
+        {
+          text: "Apply",
+          link: "/src/js/apply.md",
+        },
+        {
+          text: "Bind",
+          link: "/src/js/bind.md",
         },
       ],
     },
     {
-      text: 'Typescript',
+      text: "Typescript",
       collapsed: false,
-      items: [{ text: '类型映射', link: '/src/ts/' }],
+      items: [{ text: "类型映射", link: "/src/ts/" }],
     },
   ],
-  '/src/css/': [
+  "/src/css/": [
     {
-      text: 'Css系列',
+      text: "Css系列",
       collapsed: false,
-      items: [{ text: 'css包含块', link: '/src/css/' }],
+      items: [{ text: "css包含块", link: "/src/css/" }],
     },
   ],
-  '/src/html/': [
+  "/src/html/": [
     {
-      text: 'Html系列',
+      text: "Html系列",
       collapsed: false,
       items: [
-        { text: 'a', link: '/src/html/' },
-        { text: 'meta', link: '/src/html/meta.md' },
-        { text: 'details', link: '/src/html/details.md' },
-        { text: 'dialog', link: '/src/html/dialog.md' },
-        { text: 'popover', link: '/src/html/popover.md' },
+        { text: "a", link: "/src/html/" },
+        { text: "meta", link: "/src/html/meta.md" },
+        { text: "details", link: "/src/html/details.md" },
+        { text: "dialog", link: "/src/html/dialog.md" },
+        { text: "popover", link: "/src/html/popover.md" },
       ],
     },
   ],
-  '/src/vue3/': [
+  "/src/vue3/": [
     {
-      text: 'Vue3',
+      text: "Vue3",
       collapsed: false,
-      items: [{ text: '跑跑Demo', link: '/src/vue3/' }],
+      items: [{ text: "跑跑Demo", link: "/src/vue3/" }],
     },
   ],
-  '/src/hello/': [
+  "/src/hello/": [
     {
-      text: 'hello算法',
+      text: "hello算法",
       collapsed: false,
-      items: [{ text: '算法', link: '/src/helloAlgorithm/' }],
+      items: [{ text: "算法", link: "/src/helloAlgorithm/" }],
     },
   ],
 }
