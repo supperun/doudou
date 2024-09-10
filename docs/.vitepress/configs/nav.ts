@@ -23,7 +23,11 @@ export const nav: DefaultTheme.Config["nav"] = [
   },
   {
     text: "后台",
-    items: [{ text: "Node", link: "/src/node/index.md" }],
+    items: [
+      { text: "Node", link: "/src/node/index.md" },
+      { text: "Nginx", link: "/src/node/nginx.md" },
+      { text: "Static", link: "/src/node/static.md" },
+    ],
   },
   { text: "示例", link: "/src/demo.md" },
   { text: "VitePress", link: "https://vitepress.yiov.top/" },
