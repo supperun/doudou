@@ -45,7 +45,14 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     {
       text: "Css系列",
       collapsed: false,
-      items: [{ text: "css包含块", link: "/src/css/" }],
+      items: [
+        { text: "css包含块", link: "/src/css/" },
+        { text: "animation", link: "/src/css/animation.md" },
+        { text: "position", link: "/src/css/position.md" },
+        { text: "display", link: "/src/css/display.md" },
+        { text: "scss", link: "/src/css/scss.md" },
+        { text: "transition", link: "/src/css/transition.md" },
+      ],
     },
   ],
   "/src/html/": [
@@ -66,6 +73,17 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       text: "Vue3",
       collapsed: false,
       items: [{ text: "跑跑Demo", link: "/src/vue3/" }],
+    },
+  ],
+  "/src/react/": [
+    {
+      text: "React",
+      collapsed: false,
+      items: [
+        { text: "why?", link: "/src/react/" },
+        { text: "v6", link: "/src/react/v6.md" },
+        { text: "优化方式", link: "/src/react/batterway.md" },
+      ],
     },
   ],
   "/src/hello/": [

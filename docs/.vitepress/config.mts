@@ -55,7 +55,9 @@ export default defineConfig({
     },
     //修改侧边栏导航的标题
     outline: {
-      label: "页面导航",
+      level: [2, 4], // 显示2-4级标题
+      // level: 'deep', // 显示2-6级标题
+      label: "当前页大纲", // 文字显示
     },
     // 修改文档页脚的文字
     docFooter: {
