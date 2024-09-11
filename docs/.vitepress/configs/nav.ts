@@ -24,6 +24,7 @@ export const nav: DefaultTheme.Config["nav"] = [
   {
     text: "后台",
     items: [
+      { text: "Docs", link: "/src/docs.md" },
       { text: "Node", link: "/src/node/index.md" },
       { text: "Nginx", link: "/src/node/nginx.md" },
       { text: "Static", link: "/src/node/static.md" },
