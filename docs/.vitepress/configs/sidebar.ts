@@ -70,6 +70,19 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       ],
     },
   ],
+  "/src/vue2x/": [
+    {
+      text: "Vue2x",
+      collapsed: false,
+      items: [
+        { text: "beforeVUe", link: "/src/vue2x/" },
+        { text: "newVue", link: "/src/vue2x/new-vue.md" },
+        { text: "生命周期", link: "/src/vue2x/lifecycle.md" },
+        { text: "父子周期", link: "/src/vue2x/problem01.md" },
+        { text: "组件渲染", link: "/src/vue2x/problem02.md" },
+      ],
+    },
+  ],
   "/src/vue3/": [
     {
       text: "Vue3",

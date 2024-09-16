@@ -16,6 +16,7 @@ export const nav: DefaultTheme.Config["nav"] = [
   {
     text: "框架",
     items: [
+      { text: "Vue2x", link: "/src/vue2x/" },
       { text: "Vue3", link: "/src/vue3/" },
       { text: "React", link: "/src/react/" },
       { text: "Angular", link: "/src/vue3/" },
