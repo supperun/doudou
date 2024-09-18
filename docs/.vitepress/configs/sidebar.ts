@@ -77,6 +77,10 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
       items: [
         { text: "beforeVUe", link: "/src/vue2x/" },
         { text: "newVue", link: "/src/vue2x/new-vue.md" },
+        { text: "watcher", link: "/src/vue2x/watcher.md" },
+        { text: "computed-watcher", link: "/src/vue2x/computed-watcher.md" },
+        { text: "nextTick", link: "/src/vue2x/next-tick.md" },
+        { text: "依赖收集", link: "/src/vue2x/getters.md" },
         { text: "生命周期", link: "/src/vue2x/lifecycle.md" },
         { text: "父子周期", link: "/src/vue2x/problem01.md" },
         { text: "组件渲染", link: "/src/vue2x/problem02.md" },
