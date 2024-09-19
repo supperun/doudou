@@ -43,6 +43,7 @@ import { noop } from "shared/util"
 import { handleError } from "./error"
 import { isIOS, isNative } from "./env"
 
+let isUsingMicroTask = false
 const callbacks = []
 let pending = false
 
@@ -55,83 +56,81 @@ function flushCallbacks() {
   }
 }
 
-// Here we have async deferring wrappers using both microtasks and (macro) tasks.
-// In < 2.4 we used microtasks everywhere, but there are some scenarios where
-// microtasks have too high a priority and fire in between supposedly
-// sequential events (e.g. #4521, #6690) or even between bubbling of the same
-// event (#6566). However, using (macro) tasks everywhere also has subtle problems
-// when state is changed right before repaint (e.g. #6813, out-in transitions).
-// Here we use microtask by default, but expose a way to force (macro) task when
-// needed (e.g. in event handlers attached by v-on).
-let microTimerFunc
-let macroTimerFunc
-let useMacroTask = false
+// Here we have async deferring wrappers using microtasks.
+// In 2.5 we used (macro) tasks (in combination with microtasks).
+// However, it has subtle problems when state is changed right before repaint
+// (e.g. #6813, out-in transitions).
+// Also, using (macro) tasks in event handler would cause some weird behaviors
+// that cannot be circumvented (e.g. #7109, #7153, #7546, #7834, #8109).
+// So we now use microtasks everywhere, again.
+// A major drawback of this tradeoff is that there are some scenarios
+// where microtasks have too high a priority and fire in between supposedly
+// sequential events (e.g. #4521, #6690, which have workarounds)
+// or even between bubbling of the same event (#6566).
+var timerFunc
+// The nextTick behavior leverages the microtask queue, which can be accessed
+// via either native Promise.then or MutationObserver.
+// MutationObserver has wider support, however it is seriously bugged in
+// UIWebView in iOS >= 9.3.3 when triggered in touch event handlers. It
+// completely stops working after triggering a few times... so, if native
+// Promise is available, we will use it:
+/* istanbul ignore next, $flow-disable-line */
 
 // Determine (macro) task defer implementation.
 // Technically setImmediate should be the ideal choice, but it's only available
 // in IE. The only polyfill that consistently queues the callback after all DOM
 // events triggered in the same loop is by using MessageChannel.
 /* istanbul ignore if */
-if (typeof setImmediate !== "undefined" && isNative(setImmediate)) {
-  macroTimerFunc = () => {
-    setImmediate(flushCallbacks)
-  }
-} else if (
-  typeof MessageChannel !== "undefined" &&
-  (isNative(MessageChannel) ||
-    // PhantomJS
-    MessageChannel.toString() === "[object MessageChannelConstructor]")
-) {
-  const channel = new MessageChannel()
-  const port = channel.port2
-  channel.port1.onmessage = flushCallbacks
-  macroTimerFunc = () => {
-    port.postMessage(1)
-  }
-} else {
-  /* istanbul ignore next */
-  macroTimerFunc = () => {
-    setTimeout(flushCallbacks, 0)
-  }
-}
-
-// Determine microtask defer implementation.
-/* istanbul ignore next, $flow-disable-line */
 if (typeof Promise !== "undefined" && isNative(Promise)) {
-  const p = Promise.resolve()
-  microTimerFunc = () => {
-    p.then(flushCallbacks)
-    // in problematic UIWebViews, Promise.then doesn't completely break, but
+  var p_1 = Promise.resolve()
+  timerFunc = function () {
+    p_1.then(flushCallbacks)
+    // In problematic UIWebViews, Promise.then doesn't completely break, but
     // it can get stuck in a weird state where callbacks are pushed into the
     // microtask queue but the queue isn't being flushed, until the browser
     // needs to do some other work, e.g. handle a timer. Therefore we can
     // "force" the microtask queue to be flushed by adding an empty timer.
     if (isIOS) setTimeout(noop)
   }
+  isUsingMicroTask = true
+} else if (
+  !isIE &&
+  typeof MutationObserver !== "undefined" &&
+  (isNative(MutationObserver) ||
+    // PhantomJS and iOS 7.x
+    MutationObserver.toString() === "[object MutationObserverConstructor]")
+) {
+  // Use MutationObserver where native Promise is not available,
+  // e.g. PhantomJS, iOS7, Android 4.4
+  // (#6466 MutationObserver is unreliable in IE11)
+  var counter_1 = 1
+  var observer = new MutationObserver(flushCallbacks)
+  var textNode_1 = document.createTextNode(String(counter_1))
+  observer.observe(textNode_1, {
+    characterData: true,
+  })
+  timerFunc = function () {
+    counter_1 = (counter_1 + 1) % 2
+    textNode_1.data = String(counter_1)
+  }
+  isUsingMicroTask = true
+} else if (typeof setImmediate !== "undefined" && isNative(setImmediate)) {
+  // Fallback to setImmediate.
+  // Technically it leverages the (macro) task queue,
+  // but it is still a better choice than setTimeout.
+  timerFunc = function () {
+    setImmediate(flushCallbacks)
+  }
 } else {
-  // fallback to macro
-  microTimerFunc = macroTimerFunc
+  // Fallback to setTimeout.
+  timerFunc = function () {
+    setTimeout(flushCallbacks, 0)
+  }
 }
 
-/**
- * Wrap a function so that if any code inside triggers state change,
- * the changes are queued using a (macro) task instead of a microtask.
- */
-export function withMacroTask(fn: Function): Function {
-  return (
-    fn._withTask ||
-    (fn._withTask = function () {
-      useMacroTask = true
-      const res = fn.apply(null, arguments)
-      useMacroTask = false
-      return res
-    })
-  )
-}
-
-export function nextTick(cb?: Function, ctx?: Object) {
-  let _resolve
-  callbacks.push(() => {
+function nextTick(cb, ctx) {
+  var _resolve
+  callbacks.push(function () {
     if (cb) {
       try {
         cb.call(ctx)
@@ -144,22 +143,18 @@ export function nextTick(cb?: Function, ctx?: Object) {
   })
   if (!pending) {
     pending = true
-    if (useMacroTask) {
-      macroTimerFunc()
-    } else {
-      microTimerFunc()
-    }
+    timerFunc()
   }
   // $flow-disable-line
   if (!cb && typeof Promise !== "undefined") {
-    return new Promise((resolve) => {
+    return new Promise(function (resolve) {
       _resolve = resolve
     })
   }
 }
 ```
 
-`next-tick.js` 申明了 `microTimerFunc` 和 `macroTimerFunc` 2 个变量，它们分别对应的是 micro task 的函数和 macro task 的函数。对于 macro task 的实现，优先检测是否支持原生 `setImmediate`，这是一个高版本 IE 和 Edge 才支持的特性，不支持的话再去检测是否支持原生的 `MessageChannel`，如果也不支持的话就会降级为 `setTimeout 0`；而对于 micro task 的实现，则检测浏览器是否原生支持 Promise，不支持的话直接指向 macro task 的实现。
+对于 macro task 的实现，优先检测是否支持原生 `setImmediate`，这是一个高版本 IE 和 Edge 才支持的特性，不支持的话再去检测是否支持原生的 `MessageChannel`，如果也不支持的话就会降级为 `setTimeout 0`；而对于 micro task 的实现，则检测浏览器是否原生支持 Promise，不支持的话直接指向 macro task 的实现。
 
 `next-tick.js` 对外暴露了 2 个函数，先来看 `nextTick`，这就是我们在上一节执行 `nextTick(flushSchedulerQueue)` 所用到的函数。它的逻辑也很简单，把传入的回调函数 `cb` 压入 `callbacks` 数组，最后一次性地根据 `useMacroTask` 条件执行 `macroTimerFunc` 或者是 `microTimerFunc`，而它们都会在下一个 tick 执行 `flushCallbacks`，`flushCallbacks` 的逻辑非常简单，对 `callbacks` 遍历，然后执行相应的回调函数。
 
@@ -182,8 +177,6 @@ nextTick().then(() => {})
 ```
 
 当 `_resolve` 函数执行，就会跳到 `then` 的逻辑中。
-
-`next-tick.js` 还对外暴露了 `withMacroTask` 函数，它是对函数做一层包装，确保函数执行过程中对数据任意的修改，触发变化执行 `nextTick` 的时候强制走 `macroTimerFunc`。比如对于一些 DOM 交互事件，如 `v-on` 绑定的事件回调函数的处理，会强制走 macro task。
 
 ## 总结
 
